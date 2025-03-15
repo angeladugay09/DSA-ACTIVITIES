@@ -12,7 +12,7 @@ void traverse(Node *head) {
     Node *temp = new Node;
     temp = head;
     
-    cout << "My PLaylist" <<endl;
+    cout << "My Playlist:" <<endl;
     while(temp != NULL) {
         cout << temp->songName<< "->" <<endl;
         if(temp->link == NULL) {
@@ -35,7 +35,7 @@ Node *insertAtEnd(string data, Node *head) {
     if(head == NULL) {
         Node *newNode = createNode(data);
         head = newNode;
-        cout << "A new node has been inserted at the end \n" <<endl;
+        cout << "A new node has been inserted at the end. \n" <<endl;
         return head;
     }
     Node *temp = new Node;
@@ -48,7 +48,7 @@ Node *insertAtEnd(string data, Node *head) {
     Node *newNode = createNode(data);
     temp->link = newNode;
 
-    cout << "A new node has beed inserted at the end \n" <<endl;
+    cout << "A new node has beed inserted at the end. \n" <<endl;
     return head;
 }
 
@@ -58,7 +58,7 @@ Node *insertAtBeginning(string data, Node *head) {
 
         head = newNode;
 
-        cout << "A new node has been inserted at the beginning \n" <<endl;
+        cout << "A new node has been inserted at the beginning. \n" <<endl;
 
         return head;
 }
@@ -78,17 +78,17 @@ string insertAfter(string after, string data, Node *head) {
     newNode->link = temp->link;
     temp->link = newNode;
 
-    return "An new node has been added after" + after + "\n";
+    return "An new node has been added after " + after + ".\n";
 }
 
 string deleteAtEnd(Node *head) {
     if(head == NULL) {
-        return "The linked list is empty \n";
+        return "The linked list is empty. \n";
     }
 
     if(head->link == NULL) {
         delete head;
-        return "The head has been deleted \n";
+        return "The head has been deleted. \n";
     }
 
     Node *temp = new Node;
@@ -100,12 +100,12 @@ string deleteAtEnd(Node *head) {
 
     temp->link = NULL;
 
-    return "A node has been deleted at the end \n";
+    return "A node has been deleted at the end. \n";
 }
 
 Node *deleteFromBeginning(Node *head) {
     if(head == NULL) {
-        cout << "THe linked list is empty \n" <<endl;
+        cout << "THe linked list is empty. \n" <<endl;
         return NULL;
     }
 
@@ -115,7 +115,7 @@ Node *deleteFromBeginning(Node *head) {
 
     head = head->link;
 
-    cout << "A node has been delete from the beginning \n" <<endl;
+    cout << "A node has been delete from the beginning. \n" <<endl;
 
     return head;
 }
@@ -156,16 +156,21 @@ int main() {
     Node *head = createNode("Sanctuary by Joji");
     head = insertAtEnd("Beat It by Sean Kingston & Chris Brown", head);
     head = insertAtEnd("Rock with You by Michael Jackson", head);
-    head = insertAtEnd("Blue Butterflies by JHIN", head);
+    head = insertAtEnd("Tibok by Earl Agustin", head);
 
     head = insertAtBeginning("Walang Tayo by Ex Batallion & Flow G.", head);
     head = insertAtBeginning("Randomatic by James Reid", head);
     head = insertAtBeginning("Kaya Pala by Patch Quiwa", head);
     head = insertAtBeginning("Blue Butterflies by JHIN", head);
 
-    head = insertAfter("Tingin by Cup of Joe", head);
-    head = insertAfter("Namumula by Cup of Joe", head);
-    head = insertAfter("Palagi by TJ Monterde", head);
+    cout << insertAfter("Blue Butterflies by JHIN", "Tingin by Cup of Joe", head) <<endl;
+    cout << insertAfter("Tingin by Cup of Joe", "Namumula by Cup of Joe", head) <<endl;
+    cout << insertAfter("Namumula by Cup of Joe", "Palagi by TJ Monterde", head) <<endl;
+    
+    cout << deleteAtEnd(head) <<endl;
+    head = deleteFromBeginning(head);
+    head = deleteFromGivenNode("Kaya Pala by Patch Quiwa", head);
+    
     traverse(head);
 
     return 0;
