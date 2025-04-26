@@ -87,22 +87,22 @@ void convertToPostfix(string input) {
 }
 
 int main () {
-    string input = "(1 + 2) * 3";
+    string input = "(1+2)*3";
     convertToPostfix(input);
     
-    string input1 = "(2 + 3) - 5 * 4 / 5";
+    string input1 = "(2+3)-5*4/5";
     convertToPostfix(input1);
     
-    string input2 = "(5 + 5) * (8 - 2)";
+    string input2 = "(5+5)*(8-2)";
     convertToPostfix(input2);
     
-    string input3 = "5 + 5 + 3 * 4 - 7";
+    string input3 = "5+5+3*4-7";
     convertToPostfix(input3);
      
-    string input4 = "(5 + 6) * 2 + 1";
+    string input4 = "(5+6)*2+1";
     convertToPostfix(input4);
      
-    string input5 = "(5 + 6) * (2 + 1)";    
+    string input5 = "(5+6)*(2+1)";    
     convertToPostfix(input5);
     
     cout << endl;
